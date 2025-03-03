@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import StockPanel from '../components/StockPanel.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="home-view">
+    <StockPanel />
   </main>
 </template>
+
+<style scoped>
+.home-view {
+  padding: 2rem;
+}
+</style>

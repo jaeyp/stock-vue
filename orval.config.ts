@@ -11,12 +11,20 @@ export default defineConfig({
       mode: 'split',
       target: 'src/api/generated/stock.ts',
       schemas: 'src/api/generated/model',
-      client: 'axios',
+      client: 'vue-query',
       prettier: true,
       override: {
         mutator: {
           path: 'src/api/axios-instance.ts',
           name: 'customInstance',
+        },
+        query: {
+          useQuery: true,
+          useInfinite: true,
+          useInfiniteQueryParam: 'page',
+          options: {
+            staleTime: 10000,
+          },
         },
       },
     },
