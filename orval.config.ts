@@ -1,8 +1,12 @@
 import { defineConfig } from 'orval'
+import { loadEnv } from 'vite'
+
+const env = loadEnv('', process.cwd(), 'VITE_')
+const OPENAPI_URL = env.VITE_OPENAPI_URL || 'http://localhost:8000/openapi.json'
 
 export default defineConfig({
   stock: {
-    input: process.env.VITE_OPENAPI_URL,
+    input: OPENAPI_URL,
     output: {
       mode: 'split',
       target: 'src/api/generated/stock.ts',
